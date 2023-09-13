@@ -5,10 +5,10 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
   entry: './src/Index.tsx',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/',
     filename: 'bundle.js',
-    clean: true, /* clean /build on each build */
+    clean: true, /* clean /on each build */
   },
   resolve: {
     alias: {
