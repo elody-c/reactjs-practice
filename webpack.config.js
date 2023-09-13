@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/Index.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
@@ -14,7 +14,7 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   devServer: {
     // deprecated -- contentBase: "./build",
@@ -23,9 +23,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'ts-loader',
+          },
+        ],
       },
       {
         test: /\.less$/,
