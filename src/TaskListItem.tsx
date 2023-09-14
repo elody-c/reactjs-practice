@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-function TaskListItem({ name, completed }:{ name: string, completed:boolean }) {
+function TaskListItem({ name, completed }: { name: string, completed: boolean }) {
   // Completion status of a task is set by default by the value coming from props
   const [status, setStatus] = useState<boolean>(completed);
 
-  function handleButtonClick() {
+  function changeTaskStatus() {
     setStatus(!status);
   }
 
@@ -15,7 +15,8 @@ function TaskListItem({ name, completed }:{ name: string, completed:boolean }) {
         {' '}
         -
         {status ? 'done' : 'todo'}
-        <button type="button" onClick={handleButtonClick}>Change</button>
+        <input type="checkbox" value={status ? '1' : '0'} onChange={changeTaskStatus} />
+        <button type="button" onClick={changeTaskStatus}>Change</button>
       </p>
     </li>
   );
