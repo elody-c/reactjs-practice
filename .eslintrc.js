@@ -52,6 +52,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
